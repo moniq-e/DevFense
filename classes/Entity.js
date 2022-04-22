@@ -6,6 +6,5 @@ export class Entity {
         this.id = id
     }
     draw(ctx, x, y) {
-        ctx.drawImage(this.image, x, y)
     }
 }
