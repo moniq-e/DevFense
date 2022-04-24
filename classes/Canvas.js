@@ -8,21 +8,21 @@ export class canvas {
     createButton(color, colorHover, texture, hover, width, height, x, y, onClickCode) {
 // Console Warns
         if (color && texture) {
-            console.log('You can not provide a color and a texture for a Button!')
+            console.error('You can not provide a color and a texture for a Button!')
             return
         }
         if (hover && !texture) {
-            console.log('You can not provide a hover texture, and not provide a button texture!')
+            console.error('You can not provide a hover texture, and not provide a button texture!')
             return
         }
 
         if (!width) {
-            console.log('You need to provite Width!')
+            console.error('You need to provite Width!')
             return
         }
 
         if (!height) {
-            console.log('You need to provite Height!')
+            console.error('You need to provite Height!')
             return
         }
 
