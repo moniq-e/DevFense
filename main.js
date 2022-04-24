@@ -1,6 +1,7 @@
 import { codeBlock } from './classes/CodeBlock.js'
 import { Util } from './classes/Util.js'
 import { canvas } from './classes/Canvas.js'
+import { Entity } from './classes/Entity.js'
 
 export const app = new PIXI.Application({
     width: 780,
@@ -23,7 +24,10 @@ function runClick() {
     console.log('ebaaaa')
 }
 
+let EntityClass = new Entity(app, Util)
+EntityClass.randomZombies(200)
 document.addEventListener('keydown', (event) => {
+    EntityClass.randomZombies(200)
 })
 
 app.ticker.add(() => {

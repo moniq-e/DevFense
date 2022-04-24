@@ -20,4 +20,16 @@ export class Util {
     
         return {x: x, y: y}
     }
+
+    static followPlayer(player, zombie, speed) {
+        let disObj = this.distance(zombie.x, zombie.y, player.x, player.y)
+        
+        let pos = distance / disObj
+    
+        let x = player.x - pos * (player.x - zombie.x)
+    
+        let y = player.y - pos * (player.y - zombie.y,2)
+    
+        return {x: x, y: y}
+    }
 }
