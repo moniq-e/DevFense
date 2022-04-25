@@ -4,9 +4,11 @@ export class Entity {
     /**
      * @param {import('./Board.js').Board} board 
      * @param {String} type
+     * @param {Number} maxLife
      */
-    constructor(type, board) {
+    constructor(type, maxLife, board) {
         this.type = type
+        this.maxLife = maxLife
         this.app = board.app
         this.id = Util.random(0, 1000000)
     }

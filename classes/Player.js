@@ -6,6 +6,8 @@ export class Player {
         this.type = 'player'
         this.app = board.app
         this.sprite = this.createSprite()
+        this.maxLife = 30
+        this.life = this.maxLife
     }
     createSprite() {
         let sprite = new PIXI.Sprite(PIXI.Texture.WHITE)

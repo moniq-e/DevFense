@@ -5,7 +5,7 @@ export class Zombie extends Entity {
      * @param {import('./Board.js').Board} board 
      */
     constructor(board) {
-        super('zombie', board)
+        super('zombie', 15, board)
         this.sprite = super.createSprite('0xffffff', 30, 30)
         this.ai()
     }
