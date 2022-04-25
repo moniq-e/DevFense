@@ -29,7 +29,13 @@ EntityClass.randomZombies(200)
 document.addEventListener('keydown', (event) => {
     EntityClass.randomZombies(200)
 })
+let player = {
+    x: (app.screen.width) / 2,
+    y: (app.screen.height) / 2
+}
 
 app.ticker.add(() => {
-    //console.console('oi')
+    let zombie = EntityClass.randomZombies(200).zombie
+    let follow = Util.followPlayer(player, zombie, 10)
+    zombie.position.set(follow.x, follow.y)
 })

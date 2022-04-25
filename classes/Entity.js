@@ -28,5 +28,9 @@ export class Entity {
         zombie.position.set((this.app.screen.width) / 2 + x, (this.app.screen.height) / 2 + y)
 
         this.app.stage.addChild(zombie)
+
+        return {
+            zombie: zombie
+        }
     }
 }
