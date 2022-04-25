@@ -28,4 +28,27 @@ export class Util {
     static async sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms))
     }
+
+    static rectIntersect(obj1, obj2) {
+        let colliding = true
+        if (obj2.x > obj1.width + obj1.x) {
+            colliding = false
+        }
+        if (obj1.x > obj2.width + obj2.x) {
+            colliding = false
+        }
+        if (obj2.y > obj1.height + obj1.y) {
+            colliding = false
+        }
+        if (obj1.y > obj2.height + obj2.y) {
+            colliding = false
+        }
+
+
+        return colliding
+    }
+
+    static attack(entity) {
+        entity.destroy()
+    }
 }

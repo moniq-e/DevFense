@@ -2,7 +2,7 @@ import { Player } from './Player.js'
 import { Zombie } from './Zombie.js'
 import { CodeBlock } from './CodeBlock.js'
 import { Canvas } from './Canvas.js'
-
+import { Util } from './Util.js'
 export class Board {
     constructor(app) {
         this.app = app
@@ -17,6 +17,18 @@ export class Board {
 
         addEventListener('keydown', () => {
             this.entities.push(new Zombie(this))
+        })
+
+        this.app.ticker.add(() => {
+            for (let i = 0; i < this.entities.length; i++) {
+                
+                let colliding = Util.rectIntersect(this.player.sprite, this.entities[i].sprite)
+
+                if (colliding) {
+                    //Util.kill(this.entities[i].sprite)
+                    console.log(colliding)
+                }
+            }   
         })
     }
 }
