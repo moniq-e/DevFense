@@ -13,7 +13,7 @@ export class Board {
         this.init()
     }
     init() {
-        this.canvas.createButton('0xFFFFFF', '0x000000', undefined, undefined, 100, 100, undefined, undefined, () => { console.log('ebaaaa') })
+        //this.canvas.createButton('0xFFFFFF', '0x000000', undefined, undefined, 100, 100, undefined, undefined, () => { console.log('ebaaaa') })
 
         addEventListener('keydown', () => {
             this.entities.push(new Zombie(this))
