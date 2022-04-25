@@ -16,8 +16,8 @@ export class Entity {
         sprite.height = height
         sprite.width = width
 
-        let angle = Util.random(0, 6.3).precise
-        let randomDistance = Number(Util.random(0, 60).simple)
+        let angle = Util.random(0, 6.3).float
+        let randomDistance = Util.random(0, 100).int
         let x = ((200 + randomDistance) * Math.sin(angle))
         let y = ((200 + randomDistance) * Math.cos(angle))
 
