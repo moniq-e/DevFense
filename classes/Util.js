@@ -25,11 +25,7 @@ export class Util {
 
         return { x: x, y: y }
     }
-    static async sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms))
-    }
-
-    static rectIntersect(obj1, obj2) {
+    static collides(obj1, obj2) {
         let colliding = true
         if (obj2.x > obj1.width + obj1.x) {
             colliding = false
@@ -43,11 +39,11 @@ export class Util {
         if (obj1.y > obj2.height + obj2.y) {
             colliding = false
         }
-
-
         return colliding
     }
-
+    static async sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms))
+    }
     static attack(entity) {
         entity.destroy()
     }

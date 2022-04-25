@@ -6,11 +6,14 @@ export class Entity {
      * @param {String} type
      * @param {Number} maxLife
      */
-    constructor(type, maxLife, board) {
+    constructor(type, maxLife, damage, board) {
         this.type = type
         this.maxLife = maxLife
+        this.damage = damage
+        this.board = board
         this.app = board.app
-        this.id = Util.random(0, 1000000)
+        this.life = maxLife
+        this.id = this.board.entities.length
     }
     createSprite(tint, width, height) {
         let sprite = new PIXI.Sprite(PIXI.Texture.WHITE)
@@ -29,6 +32,8 @@ export class Entity {
         return sprite
     }
     followPlayer(player, entity, speed) {
+        if (Util.collides(this.board.player.sprite, this.sprite)) return true
+
         let disObj = Util.distance(entity.x, entity.y, player.x, player.y)
 
         let pos = speed / disObj

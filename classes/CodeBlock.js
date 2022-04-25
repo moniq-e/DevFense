@@ -9,9 +9,7 @@ export class CodeBlock {
     }
     init() {
         require.config({ paths: { vs: './node_modules/monaco-editor/min/vs' } })
-
         require(['vs/editor/editor.main'], function () {
-
             monaco.editor.defineTheme('myCustomTheme', {
                 base: 'vs-dark',
                 inherit: true,
@@ -42,16 +40,16 @@ export class CodeBlock {
                     { token: 'class.static', foreground: 'ff0000', fontStyle: 'bold' }
                 ]
             })
-
-            this.editor = monaco.editor.create(document.getElementById('container'), {
+            const editor = monaco.editor.create(document.getElementById('container'), {
                 //theme: 'vs-dark',
                 value: [''].join('\n'),
                 language: 'javascript',
                 theme: 'myCustomTheme',
                 'semanticHighlighting.enabled': true
             })
-
-            eval(this.editor.getValue())
         })
+    }
+    onRun() {
+        eval(this.editor.getValue())
     }
 }
