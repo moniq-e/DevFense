@@ -27,9 +27,9 @@ export class Entity {
 
         let pos = speed / disObj
 
-        let x = player.x - pos * (player.x - entity.x)
+        let x = entity.x - pos * (entity.x - player.x)
 
-        let y = player.y - pos * (player.y - entity.y, 2)
+        let y = entity.y - pos * (entity.y - player.y)
 
         entity.position.set(x, y)
     }

@@ -11,7 +11,7 @@ export class Zombie extends Entity {
         this.app.ticker.add(async () => {
             //ta mt rapido, msm com sleep n adiantou kkkk
             await Util.sleep(100)
-            super.followPlayer({ x: (this.app.screen.width) / 2, y: (this.app.screen.height) / 2 }, this.sprite, 10)
+            super.followPlayer({ x: (this.app.screen.width) / 2, y: (this.app.screen.height) / 2 }, this.sprite, 1)
         })
     }
 }
