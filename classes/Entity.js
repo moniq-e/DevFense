@@ -1,9 +1,13 @@
 import { Util } from "./Util.js"
 
 export class Entity {
-    constructor(type, app) {
+    /**
+     * @param {import('./Board.js').Board} board 
+     * @param {String} type
+     */
+    constructor(type, board) {
         this.type = type
-        this.app = app
+        this.app = board.app
         this.id = Util.random(0, 1000000)
     }
     createSprite(tint, width, height) {

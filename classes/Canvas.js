@@ -1,8 +1,7 @@
 export class Canvas {
-    constructor(app) {
-        this.app = app
+    constructor(board) {
+        this.app = board.app
     }
-
     createButton(color=null, colorHover=null, texture=null, hover=null, width, height, x=null, y=null, onClickCode) {
         // Console Warns
         if (color && texture) {

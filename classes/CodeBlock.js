@@ -1,10 +1,12 @@
 export class CodeBlock {
-    constructor(app) {
-        this.app = app
+    /**
+    * @param {import('./Board.js').Board} board 
+    */
+    constructor(board) {
+        this.app = board.app
         this.editor
         this.init()
     }
-
     init() {
         require.config({ paths: { vs: './node_modules/monaco-editor/min/vs' } })
 
