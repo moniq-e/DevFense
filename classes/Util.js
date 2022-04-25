@@ -1,7 +1,11 @@
 export class Util {
     static random(min, max) {
-        let resul = Math.floor((Math.random() * max) + min)
-        return resul
+        let resul = (Math.random() * max) + min
+        let simplyResul = Math.floor(resul)
+        return {
+            precise: resul,
+            simple: simplyResul
+        }
     }
 
     static distance(x, y, x2, y2) {

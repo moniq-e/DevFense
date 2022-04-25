@@ -2,6 +2,7 @@ import { Player } from './Player.js'
 import { Zombie } from './Zombie.js'
 import { CodeBlock } from './CodeBlock.js'
 import { Canvas } from './Canvas.js'
+import { Entity } from './Entity.js'
 
 export class Board {
     constructor(app) {
@@ -9,6 +10,7 @@ export class Board {
         this.player = new Player(this)
         this.codeBlock = new CodeBlock(this)
         this.canvas = new Canvas(this)
+        this.entity = new Entity(this)
         this.entities = []
     }
     init() {

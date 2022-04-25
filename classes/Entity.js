@@ -16,10 +16,10 @@ export class Entity {
         sprite.height = height
         sprite.width = width
 
-        let angle = Util.random(0, 6.3)
-
-        let x = (200 * Math.sin(angle))
-        let y = (200 * Math.cos(angle))
+        let angle = Util.random(0, 6.3).precise
+        let randomDistance = Number(Util.random(0, 60).simple)
+        let x = ((200 + randomDistance) * Math.sin(angle))
+        let y = ((200 + randomDistance) * Math.cos(angle))
 
         sprite.position.set((this.app.screen.width) / 2 + x, (this.app.screen.height) / 2 + y)
         
