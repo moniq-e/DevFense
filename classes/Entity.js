@@ -1,36 +1,36 @@
+import { Util } from "./Util.js"
+
 export class Entity {
-    constructor(/*name, image, type, id*/app, Util) {
-        /*this.name = name
-        this.image = image
+    constructor(type, app) {
         this.type = type
-        this.id = id*/
         this.app = app
-        this.Util = Util
+        this.id = Util.random(0, 1000000)
     }
-    draw(ctx, x, y) {
+    createSprite(tint, width, height) {
+        let sprite = new PIXI.Sprite(PIXI.Texture.WHITE)
+        sprite.tint = tint
+        sprite.height = height
+        sprite.width = width
+
+        let angle = Util.random(0, 6.3)
+
+        let x = (200 * Math.sin(angle))
+        let y = (200 * Math.cos(angle))
+
+        sprite.position.set((this.app.screen.width) / 2 + x, (this.app.screen.height) / 2 + y)
+        
+        this.app.stage.addChild(sprite)
+        return sprite
     }
+    followPlayer(player, entity, speed) {
+        let disObj = Util.distance(entity.x, entity.y, player.x, player.y)
 
-    createZombie() {
-        let zombie = new PIXI.Sprite(PIXI.Texture.WHITE)
-        zombie.tint = '0xffffff'
-        zombie.height = 30
-        zombie.width = 30
-        return zombie
-    }
+        let pos = speed / disObj
 
-    randomZombies(radio) {
-        let zombie = this.createZombie()
-        let angle = this.Util.random(0, 6.3)
+        let x = player.x - pos * (player.x - entity.x)
 
-        let x = (radio * Math.sin(angle))
-        let y = (radio * Math.cos(angle))
+        let y = player.y - pos * (player.y - entity.y, 2)
 
-        zombie.position.set((this.app.screen.width) / 2 + x, (this.app.screen.height) / 2 + y)
-
-        this.app.stage.addChild(zombie)
-
-        return {
-            zombie: zombie
-        }
+        entity.position.set(x, y)
     }
 }

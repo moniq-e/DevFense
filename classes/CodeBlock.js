@@ -1,22 +1,12 @@
-export class codeBlock {
-    constructor(app, Util) {
+export class CodeBlock {
+    constructor(app) {
         this.app = app
-        this.Util = Util
+        this.editor
+        this.init()
     }
 
-    /*console(text) {
-        let square = new PIXI.Sprite(PIXI.Texture.WHITE)
-
-        square.position.set((this.app.screen.width) / 2 + this.Util.random(-500, 1000), (this.app.screen.height) / 2 + this.Util.random(-500, 1000))
-        square.width = 10
-        square.height = 10
-        square.tint = '0xFFFFFF'
-
-        this.app.stage.addChild(square);
-    }*/
-
-    createCodeBlock() {
-        require.config({ paths: { vs: './node_modules/monaco-editor/min/vs' } });
+    init() {
+        require.config({ paths: { vs: './node_modules/monaco-editor/min/vs' } })
 
         require(['vs/editor/editor.main'], function () {
 
@@ -49,26 +39,17 @@ export class codeBlock {
                     { token: 'type.static', fontStyle: 'bold' },
                     { token: 'class.static', foreground: 'ff0000', fontStyle: 'bold' }
                 ]
-            });
+            })
 
-            var editor = monaco.editor.create(document.getElementById('container'), {
+            this.editor = monaco.editor.create(document.getElementById('container'), {
                 //theme: 'vs-dark',
                 value: [''].join('\n'),
                 language: 'javascript',
                 theme: 'myCustomTheme',
                 'semanticHighlighting.enabled': true
-            });
-            eval(editor.getValue())
-        });
-    }
-/*
-    runButton(editor) {
-        if (roudo botão) {
-            eval(editor.getValue())
-        }
-    }*/
-}
+            })
 
-/*const scriptElement = document.createElement('script');
-scriptElement.textContent = 'attack()';
-document.querySelector('body').appendChild(scriptElement);*/
+            eval(this.editor.getValue())
+        })
+    }
+}

@@ -1,12 +1,10 @@
-export class canvas {
-
-    constructor(app, Util) {
+export class Canvas {
+    constructor(app) {
         this.app = app
-        this.Util = Util
     }
 
-    createButton(color, colorHover, texture, hover, width, height, x, y, onClickCode) {
-// Console Warns
+    createButton(color=null, colorHover=null, texture=null, hover=null, width, height, x=null, y=null, onClickCode) {
+        // Console Warns
         if (color && texture) {
             console.error('You can not provide a color and a texture for a Button!')
             return
@@ -25,8 +23,7 @@ export class canvas {
             console.error('You need to provite Height!')
             return
         }
-
-// Real code
+        // Real code
         let button
 
         if (color) {
@@ -52,14 +49,9 @@ export class canvas {
 
         this.app.stage.addChild(button);
 
-        button
-            .on('pointerdown', buttonClick)
-            .on('pointerover', buttonOver)
-            .on('pointerout', buttonOut)
-
-        function buttonClick() {
-            onClickCode()
-        }
+        button.on('pointerdown', onClickCode)
+        button.on('pointerover', buttonOver)
+        button.on('pointerout', buttonOut)
         
         function buttonOver() {
             if (hover) {
