@@ -1,12 +1,15 @@
-import { Util } from "./Util.js"
+import { Board } from "./Board"
+import { Util } from "./Util"
 
 export class Entity {
-    /**
-     * @param {import('./Board.js').Board} board 
-     * @param {String} type
-     * @param {Number} maxLife
-     */
-    constructor(type, maxLife, damage, board) {
+    type: String
+    maxLife: number
+    damage: number
+    board: Board
+    app: any
+    life: number
+    id: number
+    constructor(type: String, maxLife: number, damage: number, board: Board) {
         this.type = type
         this.maxLife = maxLife
         this.damage = damage
@@ -15,7 +18,7 @@ export class Entity {
         this.life = maxLife
         this.id = this.board.entities.length
     }
-    createSprite(tint, width, height) {
+    createSprite(tint: String, width: number, height: number) {
         let sprite = new PIXI.Sprite(PIXI.Texture.WHITE)
         sprite.tint = tint
         sprite.height = height
@@ -31,7 +34,7 @@ export class Entity {
         this.app.stage.addChild(sprite)
         return sprite
     }
-    followPlayer(player, entity, speed) {
+    followPlayer(player: any, entity: any, speed: number) {
         if (Util.collides(this.board.player.sprite, this.sprite)) return true
 
         let disObj = Util.distance(entity.x, entity.y, player.x, player.y)
@@ -43,5 +46,8 @@ export class Entity {
         let y = entity.y - pos * (entity.y - player.y)
 
         entity.position.set(x, y)
+    }
+    sprite(sprite: any, sprite: any) {
+        throw new Error("Method not implemented.")
     }
 }

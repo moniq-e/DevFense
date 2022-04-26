@@ -1,10 +1,17 @@
-import { Player } from './Player.js'
-import { Zombie } from './Zombie.js'
-import { CodeBlock } from './CodeBlock.js'
-import { Canvas } from './Canvas.js'
-import { Dev } from './Dev.js'
+import { Player } from './Player'
+import { Zombie } from './Zombie'
+import { CodeBlock } from './CodeBlock'
+import { Canvas } from './Canvas'
+import { Dev } from './Dev'
+import { Entity } from './Entity'
 
 export class Board {
+    app: any
+    player: Player
+    codeBlock: CodeBlock
+    canvas: Canvas
+    dev: Dev
+    entities: Entity[]
     constructor() {
         this.app = new PIXI.Application({
             width: 780,

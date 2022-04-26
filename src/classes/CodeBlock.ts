@@ -1,10 +1,9 @@
+import { Board } from "./Board"
+
 export class CodeBlock {
-    /**
-    * @param {import('./Board.js').Board} board 
-    */
-    constructor(board) {
+    app: any
+    constructor(board: Board) {
         this.app = board.app
-        this.editor
         this.init()
     }
     init() {
@@ -50,6 +49,6 @@ export class CodeBlock {
         })
     }
     onRun() {
-        eval(this.editor.getValue())
+        //eval(this.editor.getValue())
     }
 }

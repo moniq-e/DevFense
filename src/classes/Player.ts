@@ -1,8 +1,12 @@
+import { Board } from "./Board"
+
 export class Player {
-    /**
-     * @param {import('./Board.js').Board} board 
-     */
-    constructor(board) {
+    type: string
+    app: any
+    sprite: any
+    maxLife: number
+    life: number
+    constructor(board: Board) {
         this.type = 'player'
         this.app = board.app
         this.sprite = this.createSprite()

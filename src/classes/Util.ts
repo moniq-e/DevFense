@@ -1,20 +1,16 @@
 export class Util {
-    /**
-     * @param {Number} min 
-     * @param {Number} max 
-     */
-    static random(min, max) {
+    static random(min: number, max: number) {
         let results = {
             float: (Math.random() * max) + min,
             int: Math.floor((Math.random() * max) + min)
         }
         return results
     }
-    static distance(x, y, x2, y2) {
+    static distance(x: number, y: number, x2: number, y2: number) {
         let dis = Math.abs(Math.sqrt(Math.pow(x - x2, 2) + Math.pow(y - y2, 2)))
         return dis
     }
-    static knockback(firstObj, secondObj, distance) {
+    static knockback(firstObj: any, secondObj: any, distance: number) {
         let disObj = this.distance(firstObj.x, firstObj.y, secondObj.x, secondObj.y)
 
         let pos = distance / disObj
@@ -25,7 +21,7 @@ export class Util {
 
         return { x: x, y: y }
     }
-    static collides(obj1, obj2) {
+    static collides(obj1: any, obj2: any) {
         let colliding = true
         if (obj2.x > obj1.width + obj1.x) {
             colliding = false
@@ -41,10 +37,10 @@ export class Util {
         }
         return colliding
     }
-    static async sleep(ms) {
+    static async sleep(ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms))
     }
-    static attack(entity) {
+    static attack(entity: any) {
         entity.destroy()
     }
 }

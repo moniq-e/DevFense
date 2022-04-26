@@ -1,8 +1,11 @@
+import { Board } from "./Board"
+
 export class Canvas {
-    constructor(board) {
+    app: any
+    constructor(board: Board) {
         this.app = board.app
     }
-    createButton(color=null, colorHover=null, texture=null, hover=null, width, height, x=null, y=null, onClickCode) {
+    createButton(color: String | null, colorHover: String | null, texture: String | null, hover: String | null, width: number, height: number, x: number | null, y: number | null, onClickCode: Function) {
         // Console Warns
         if (color && texture) {
             console.error('You can not provide a color and a texture for a Button!')
