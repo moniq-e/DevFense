@@ -21,7 +21,7 @@ export class Util {
 
         let x = secondObj.x + pos * (secondObj.x - firstObj.x)
 
-        let y = secondObj.y + pos * (secondObj.y - firstObj.y, 2)
+        let y = secondObj.y + pos * (secondObj.y - firstObj.y)
 
         return { x: x, y: y }
     }

@@ -2,6 +2,7 @@ import { Player } from './Player.js'
 import { Zombie } from './Zombie.js'
 import { CodeBlock } from './CodeBlock.js'
 import { Canvas } from './Canvas.js'
+import { Dev } from './Dev.js'
 
 export class Board {
     constructor() {
@@ -15,6 +16,7 @@ export class Board {
         this.player = new Player(this)
         this.codeBlock = new CodeBlock(this)
         this.canvas = new Canvas(this)
+        this.dev = new Dev(this)
         this.entities = []
         this.init()
     }
@@ -22,8 +24,12 @@ export class Board {
         //this.canvas.createButton('0xFFFFFF', '0x000000', undefined, undefined, 100, 100, undefined, undefined, () => { console.log('ebaaaa') })
         document.body.appendChild(this.app.view)
 
-        addEventListener('keydown', () => {
-            this.entities.push(new Zombie(this))
+        addEventListener('keydown', (event) => {
+            if (event.key == 'p') {
+                this.dev.getScreenPosition()
+            } else {
+                this.entities.push(new Zombie(this))            
+            }
         })
     }
 }

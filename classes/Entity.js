@@ -23,8 +23,8 @@ export class Entity {
 
         let angle = Util.random(0, 6.3).float
         let randomDistance = Util.random(0, 100).int
-        let x = ((200 + randomDistance) * Math.sin(angle))
-        let y = ((200 + randomDistance) * Math.cos(angle))
+        let x = ((400 + randomDistance) * Math.sin(angle))
+        let y = ((400 + randomDistance) * Math.cos(angle))
 
         sprite.position.set((this.app.screen.width) / 2 + x, (this.app.screen.height) / 2 + y)
         
