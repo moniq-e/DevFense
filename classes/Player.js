@@ -1,5 +1,5 @@
 import { Board } from "./Board.js"
-
+import { Util } from "./Util.js"
 export class Player {
     type
     app
@@ -12,8 +12,9 @@ export class Player {
     constructor(board) {
         this.type = 'player'
         this.app = board.app
+        this.board = board
         this.sprite = this.createSprite()
-        this.maxLife = 30
+        this.maxLife = 100
         this.life = this.maxLife
     }
     /**
@@ -29,5 +30,19 @@ export class Player {
         
         this.app.stage.addChild(sprite)
         return sprite
+    }
+    
+    isDead() {
+        if (this.board.player.life == 0.0999999999998426) this.board.player.life = 0.1
+        if (this.board.player.life <= 0) return true
+    }
+
+    playerTick() {
+        this.app.ticker.add(() => {
+            if (this.isDead()) {
+                //Util.kill(this.sprite)
+                console.log('The Player is dead')
+            }
+        })
     }
 }

@@ -13,6 +13,7 @@ export class Zombie extends Entity {
     ai() {
         this.app.ticker.add(() => {
             super.followPlayer(this.board.player.sprite, this.sprite, 1)
+            super.hurtPlayer()
         })
     }
 }

@@ -70,7 +70,7 @@ export class Util {
     /**
      * @param {any} entity sprite
      */
-    static attack(entity) {
+    static kill(entity) {
         entity.destroy()
     }
 }
