@@ -66,10 +66,4 @@ export class Entity {
 
         entity.position.set(x, y)
     }
-
-    hurtPlayer() {
-        if (!Util.collides(this.board.player.sprite, this.sprite)) return
-        if (this.board.player.life <= 0) return
-        this.board.player.life -= 0.1
-    }
 }
