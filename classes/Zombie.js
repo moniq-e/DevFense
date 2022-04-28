@@ -1,5 +1,6 @@
 import { Board } from "./Board.js"
 import { Entity } from "./Entity.js"
+import { Util } from "./Util.js"
 
 export class Zombie extends Entity {
     /**
