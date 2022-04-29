@@ -16,13 +16,14 @@ export class Entity {
      * @param {number} damage 
      * @param {Board} board 
      */
-    constructor(type, maxLife, damage, board) {
+    constructor(type, maxLife, damage, speed, board) {
         this.type = type
         this.maxLife = maxLife
         this.damage = damage
         this.board = board
         this.app = board.app
         this.life = maxLife
+        this.speed = speed
         this.id = this.board.entities.length
     }
     /**
@@ -63,6 +64,15 @@ export class Entity {
         let x = entity.x - pos * (entity.x - player.x)
 
         let y = entity.y - pos * (entity.y - player.y)
+        
+        /*if (this.board.player.isDead()) {
+            disObj = Util.distance(entity.x, entity.y, player.x + Util.random(-300, 150), player.y)
+            pos = speed / disObj
+
+            x = entity.x - pos * (entity.x - player.x + Util.random(-300, 150))
+
+            y = entity.y - pos * (entity.y - player.y)
+        }*/
 
         entity.position.set(x, y)
     }

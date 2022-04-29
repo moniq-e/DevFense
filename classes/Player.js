@@ -16,6 +16,7 @@ export class Player {
         this.sprite = this.createSprite()
         this.maxLife = 100
         this.life = this.maxLife
+        this.dead = false
         this.tick()
     }
     /**
@@ -38,7 +39,7 @@ export class Player {
     tick() {
         this.app.ticker.add(() => {
             if (this.isDead()) {
-                //Util.kill(this.sprite)
+                this.dead = true
                 console.log('The Player is dead')
             }
         })

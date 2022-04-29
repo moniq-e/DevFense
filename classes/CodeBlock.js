@@ -12,7 +12,6 @@ export class CodeBlock {
         this.init()
     }
     init() {
-        console.log('code block')
             this.editor = monaco.editor.create(document.getElementById('container'), {
                 theme: 'vs-dark',
                 value: ['console.log("eba")'].join('\n'),
@@ -23,6 +22,8 @@ export class CodeBlock {
             this.board.canvas.createButton('0xFFFFFF', '0x000000', undefined, undefined, 100, 100, 30, 30, () => { this.onRun() } )
     }
     onRun() {
-        eval(this.editor.getValue())
+        const scriptElement = document.createElement('script');
+        scriptElement.textContent = this.editor.getValue();
+        document.querySelector('body').appendChild(scriptElement);
     }
 }
