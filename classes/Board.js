@@ -20,8 +20,8 @@ export class Board {
             resolution: 1
         })
         this.player = new Player(this)
-        this.codeBlock = new CodeBlock(this)
         this.canvas = new Canvas(this)
+        this.codeBlock = new CodeBlock(this)
         this.dev = new Dev(this)
         this.entities = []
         this.init()
