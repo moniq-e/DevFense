@@ -26,6 +26,6 @@ export class CodeBlock {
     onRun() {
         const scriptElement = document.createElement('script')
         scriptElement.textContent = this.editor.getValue()
-        document.querySelector('body').appendChild(scriptElement)
+        document.body.appendChild(scriptElement)
     }
 }

@@ -24,12 +24,11 @@ export class Player {
      * @returns sprite
      */
     createSprite() {
-        let sprite = new PIXI.Sprite(PIXI.Texture.WHITE)
-        sprite.tint = '0xfff000'
-        sprite.height = 30
-        sprite.width = 30
+        let sprite = PIXI.Sprite.from('../images/player.png')
+        sprite.height = 128
+        sprite.width = 128
 
-        sprite.position.set((this.app.screen.width / 2), (this.app.screen.height / 2))
+        sprite.position.set((this.app.screen.width / 2) - sprite.width / 2, (this.app.screen.height / 2) - sprite.height / 2)
         
         this.app.stage.addChild(sprite)
         return sprite
