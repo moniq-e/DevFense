@@ -7,24 +7,19 @@ export class Zombie extends Entity {
      * @param {Board} board 
      */
     constructor(board) {
-        super('zombie', 15, 0.1, 1, board)
+        super('zombie', 15, 0.1, Util.random(0.9, 1.3).float, board)
         this.sprite = super.createSprite('0xffffff', 30, 30)
         this.ai()
     }
     ai() {
         this.app.ticker.add(() => {
-            if (this.board.player.isDead()) {
-                this.board.player.sprite.position.set(this.board.player.sprite.x, this.board.player.sprite.y - 1000)
-                super.followPlayer(this.board.player.sprite, this.sprite, this.speed + Util.random(0, 1).float)
-                return
-            }
-            super.followPlayer(this.board.player.sprite, this.sprite, this.speed + Util.random(0, 1).float)
+            super.followPlayer(this.board.player.sprite, this.sprite, this.speed)
             this.hurtPlayer()
         })
     }
     hurtPlayer() {
         if (!Util.collides(this.board.player.sprite, this.sprite)) return
-        if (this.board.player.isDead()) return
+        if (this.board.player.dead) return
         this.board.player.life -= this.damage
     }
 }

@@ -1,11 +1,12 @@
 import { Board } from "./Board.js"
-import { Util } from "./Util.js"
 export class Player {
     type
     app
+    board
     sprite
     maxLife
     life
+    dead
     /**
      * @param {Board} board 
      */
@@ -39,8 +40,8 @@ export class Player {
     tick() {
         this.app.ticker.add(() => {
             if (this.isDead()) {
+                this.board.player.sprite.position.set(this.board.player.sprite.x, this.board.player.sprite.y - 1000)
                 this.dead = true
-                console.log('The Player is dead')
             }
         })
     }

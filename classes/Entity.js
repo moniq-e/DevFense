@@ -64,15 +64,6 @@ export class Entity {
         let x = entity.x - pos * (entity.x - player.x)
 
         let y = entity.y - pos * (entity.y - player.y)
-        
-        /*if (this.board.player.isDead()) {
-            disObj = Util.distance(entity.x, entity.y, player.x + Util.random(-300, 150), player.y)
-            pos = speed / disObj
-
-            x = entity.x - pos * (entity.x - player.x + Util.random(-300, 150))
-
-            y = entity.y - pos * (entity.y - player.y)
-        }*/
 
         entity.position.set(x, y)
     }
