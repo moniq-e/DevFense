@@ -41,6 +41,9 @@ export class Player {
         this.app.stage.addChild(sprite)
         
         addEventListener('keydown', () => {
+            let per = Math.random()
+            if (per > 0.3) return
+            console.log('teste')
             sprite.texture = playerTextures[Util.random(0, playerTextures.length).int]
         })
 
