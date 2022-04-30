@@ -38,9 +38,6 @@ export class Player {
 
         sprite.position.set((this.app.screen.width / 2) - sprite.width / 2, (this.app.screen.height / 2) - sprite.height / 2)
 
-        sprite.interactive = true
-        sprite.buttonMode = true 
-
         this.app.stage.addChild(sprite)
         
         addEventListener('keydown', () => {
