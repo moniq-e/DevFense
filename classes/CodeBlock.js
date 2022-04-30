@@ -16,7 +16,7 @@ export class CodeBlock {
     init() {
         this.editor = monaco.editor.create(document.getElementById('container'), {
             theme: 'vs-dark',
-            value: ['console.log("eba")'].join('\n'),
+            value: ['import { PlayerFunctions } from "./classes/playerFunctions.js"'].join('\n'),
             language: 'javascript',
             'semanticHighlighting.enabled': true
         })
@@ -25,7 +25,14 @@ export class CodeBlock {
     }
     onRun() {
         const scriptElement = document.createElement('script')
+        scriptElement.id = 'fakeEval'
+        scriptElement.className = 'eval'
+        scriptElement.type = 'module'
         scriptElement.textContent = this.editor.getValue()
         document.body.appendChild(scriptElement)
     }
 }
+/*
+import { PlayerFunctions } from "./classes/playerFunctions.js"
+
+PlayerFunctions.consoleLog('oieeeeeee')*/

@@ -1,4 +1,5 @@
 import { Board } from "./Board.js"
+import { Util } from "./Util.js"
 export class Player {
     type
     app
@@ -24,13 +25,28 @@ export class Player {
      * @returns sprite
      */
     createSprite() {
-        let sprite = PIXI.Sprite.from('../images/player.png')
-        sprite.height = 128
-        sprite.width = 128
+        let playerTextures = [
+            PIXI.Texture.from('images/player.png'),
+            // textura do red_player ficou com um problema, vou refazer tudo depois
+            PIXI.Texture.from('images/red_player.png')
+        ]
+
+        let sprite = new PIXI.Sprite.from('images/player.png')
+
+        sprite.height = 256
+        sprite.width = 256
 
         sprite.position.set((this.app.screen.width / 2) - sprite.width / 2, (this.app.screen.height / 2) - sprite.height / 2)
-        
+
+        sprite.interactive = true
+        sprite.buttonMode = true 
+
         this.app.stage.addChild(sprite)
+        
+        addEventListener('keydown', () => {
+            sprite.texture = playerTextures[Util.random(0, playerTextures.length).int]
+        })
+
         return sprite
     }
     isDead() {
@@ -39,7 +55,7 @@ export class Player {
     tick() {
         this.app.ticker.add(() => {
             if (this.isDead()) {
-                this.board.player.sprite.position.set(this.board.player.sprite.x, this.board.player.sprite.y - 1000)
+                this.sprite.position.set(this.sprite.x, this.sprite.y - 1000)
                 this.dead = true
             }
         })
