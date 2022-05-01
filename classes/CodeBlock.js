@@ -16,7 +16,7 @@ export class CodeBlock {
     init() {
         this.editor = monaco.editor.create(document.getElementById('container'), {
             theme: 'vs-dark',
-            value: ['import { PlayerFunctions } from "./classes/playerFunctions.js"'].join('\n'),
+            value: ['document.addEventListener("player.hurt", function(event) {\nconsole.log("teste funcionou")\n})'].join('\n'),
             language: 'javascript',
             'semanticHighlighting.enabled': true
         })

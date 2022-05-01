@@ -3,6 +3,7 @@ import { Zombie } from './Zombie.js'
 import { CodeBlock } from './CodeBlock.js'
 import { Canvas } from './Canvas.js'
 import { Dev } from './Dev.js'
+import { EventHandler } from './EventHandler.js'
 
 export class Board {
     app
@@ -23,6 +24,7 @@ export class Board {
         this.canvas = new Canvas(this)
         this.codeBlock = new CodeBlock(this)
         this.dev = new Dev(this)
+        this.eventHandler = new EventHandler(this)
         this.entities = []
         this.init()
     }

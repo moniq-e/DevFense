@@ -18,8 +18,9 @@ export class Zombie extends Entity {
         })
     }
     hurtPlayer() {
-        if (!Util.collides(this.board.player.sprite, this.sprite)) return
-        if (this.board.player.dead) return
+        if (!Util.collides(this.board.player.sprite, this.sprite) && this.board.player.dead) return
         this.board.player.life -= this.damage
+        this.board.eventHandler.playerHurt(this, this.board.player)
+        console.log('deu dano')
     }
 }
