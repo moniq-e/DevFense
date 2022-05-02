@@ -36,7 +36,7 @@ export class Board {
             if (event.key == 'p') {
                 this.dev.getScreenPosition()
             } else {
-                this.entities.push(new Zombie(this))            
+                this.entities.push(new Zombie(this))
             }
         })
     }
