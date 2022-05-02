@@ -26,9 +26,9 @@ export class Player {
      */
     createSprite() {
         let playerTextures = [
-            PIXI.Texture.from('images/player.png'),
+            PIXI.Texture.from('../images/player.png'),
             // textura do red_player ficou com um problema, vou refazer tudo depois
-            PIXI.Texture.from('images/red_player.png')
+            PIXI.Texture.from('../images/red_player.png')
         ]
 
         let sprite = new PIXI.Sprite.from('images/player.png')
@@ -41,10 +41,7 @@ export class Player {
         this.app.stage.addChild(sprite)
         
         addEventListener('keydown', () => {
-            let per = Math.random()
-            if (per > 0.3) return
-            console.log('teste')
-            sprite.texture = playerTextures[Util.random(0, playerTextures.length).int]
+            sprite.texture = playerTextures[Util.random(0, playerTextures.length-1).int]
         })
 
         return sprite

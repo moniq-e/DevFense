@@ -31,7 +31,7 @@ export class Board {
     init() {
         //this.canvas.createButton('0xFFFFFF', '0x000000', undefined, undefined, 100, 100, undefined, undefined, () => { console.log('ebaaaa') })
         document.body.appendChild(this.app.view)
-        
+
         addEventListener('keydown', (event) => {
             if (event.key == 'p') {
                 this.dev.getScreenPosition()
@@ -41,3 +41,4 @@ export class Board {
         })
     }
 }
+new Board()
