@@ -41,7 +41,7 @@ export class Player {
         this.app.stage.addChild(sprite)
         
         addEventListener('keydown', () => {
-            sprite.texture = playerTextures[Util.random(0, playerTextures.length-1).int]
+            sprite.texture = playerTextures[Util.random(0, playerTextures.length).int]
         })
 
         return sprite

@@ -24,10 +24,11 @@ export class CodeBlock {
         this.board.canvas.createButton('0xFFFFFF', '0x000000', undefined, undefined, 100, 100, 30, 30, () => { this.onRun() })
     }
     onRun() {
+        let script = document.getElementById('playerCode')
+        if (script) { script.remove() }
         const scriptElement = document.createElement('script')
-        scriptElement.id = 'fakeEval'
-        scriptElement.className = 'eval'
-        scriptElement.type = 'module'
+        scriptElement.id = 'playerCode'
+        scriptElement.className = 'code'
         scriptElement.textContent = this.editor.getValue()
         document.body.appendChild(scriptElement)
     }
