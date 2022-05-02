@@ -1,12 +1,10 @@
-import { Player } from "./Player.js"
 import { Entity } from "./Entity.js"
 
 export class EventHandler {
     /**
-     * @param {Entity} source 
-     * @param {Player} player 
+     * @param {Entity} source
      */
-    playerHurt(source, player) {
+    playerHurt(source) {
         document.dispatchEvent(new CustomEvent("player.hurt", {
             //cancelar não ta funcionando ainda pq o listener do codeblock é ligado dps do hardcoded
             cancelable: true,
@@ -22,10 +20,10 @@ export class EventHandler {
                     y: source.sprite.y
                 },
                 player: {
-                    health: player.life,
-                    sprite: player.sprite,
-                    x: player.sprite.x,
-                    y: player.sprite.y
+                    health: source.board.player.life,
+                    sprite: source.board.player.sprite,
+                    x: source.board.player.sprite.x,
+                    y: source.board.player.sprite.y
                 }
             }
         }))

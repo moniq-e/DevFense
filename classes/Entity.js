@@ -5,6 +5,7 @@ export class Entity {
     type
     maxLife
     damage
+    attackSpeed
     board
     app
     life
@@ -14,12 +15,14 @@ export class Entity {
      * @param {string} type 
      * @param {number} maxLife 
      * @param {number} damage 
+     * @param {number} attackSpeed ms
      * @param {Board} board 
      */
-    constructor(type, maxLife, damage, speed, board) {
+    constructor(type, maxLife, damage, attackSpeed, speed, board) {
         this.type = type
         this.maxLife = maxLife
         this.damage = damage
+        this.attackSpeed = attackSpeed
         this.board = board
         this.app = board.app
         this.life = maxLife
@@ -44,7 +47,7 @@ export class Entity {
         let y = ((400 + randomDistance) * Math.cos(angle))
 
         sprite.position.set((this.app.screen.width) / 2 + x, (this.app.screen.height) / 2 + y)
-        
+
         this.app.stage.addChild(sprite)
         return sprite
     }
@@ -66,5 +69,9 @@ export class Entity {
         let y = entity.y - pos * (entity.y - player.y)
 
         entity.position.set(x, y)
+    }
+    attack() {
+        this.board.player.life -= this.damage
+        this.board.eventHandler.playerHurt(this)
     }
 }
