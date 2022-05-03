@@ -1,6 +1,7 @@
 import { Board } from "./Board.js"
 import { Util } from "./Util.js"
 export class Player {
+    stage
     type
     app
     board
@@ -13,6 +14,7 @@ export class Player {
      */
     constructor(board) {
         this.type = 'player'
+        this.stage
         this.app = board.app
         this.board = board
         this.sprite = this.createSprite()

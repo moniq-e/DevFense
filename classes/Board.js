@@ -15,7 +15,7 @@ export class Board {
     constructor() {
         this.app = new PIXI.Application({
             width: 780,
-            height: 550,
+            height: 540,
             backgroundColor: 0x333334,
             antialias: true,
             resolution: 1
