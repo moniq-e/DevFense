@@ -29,17 +29,14 @@ export class Player {
     createSprite() {
         let playerTextures = [
             PIXI.Texture.from('./images/player.png'),
-            // textura do red_player ficou com um problema, vou refazer tudo depois
             PIXI.Texture.from('./images/red_player.png')
         ]
-
         let sprite = new PIXI.Sprite.from('images/player.png')
 
         sprite.height = 256
         sprite.width = 256
 
         sprite.position.set((this.app.screen.width / 2) - sprite.width / 2, (this.app.screen.height / 2) - sprite.height / 2)
-
         this.app.stage.addChild(sprite)
         
         addEventListener('keydown', () => {
