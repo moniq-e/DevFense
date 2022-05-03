@@ -21,14 +21,13 @@ export class CodeBlock {
             'semanticHighlighting.enabled': true
         })
 
-        this.board.canvas.createButton('0xFFFFFF', '0x000000', undefined, undefined, 50, 50, 700, 470, () => { this.onRun() })
+        this.board.canvas.createButton('0xFFFFFF', '0x000000', undefined, undefined, 50, 50, 700, 470, () => { this.onSave() })
     }
-    onRun() {
+    onSave() {
         let script = document.getElementById('playerCode')
         if (script) { script.remove() }
-        const scriptElement = document.createElement('script')
+        let scriptElement = document.createElement('script')
         scriptElement.id = 'playerCode'
-        scriptElement.className = 'code'
         scriptElement.textContent = this.editor.getValue()
         document.body.appendChild(scriptElement)
     }

@@ -12,6 +12,19 @@ export class Canvas {
         this.grid = []
         this.createGrid()
     }
+    createGrid() {
+        for (let x = 0; x <= 780; x += 60) {
+            for (let y = 0; y <= 540; y += 60) {
+                this.grid.push(new Cell(x, y, this.app))
+            }
+        }
+    }
+    updateGrid() {
+
+    }
+    createTower() {
+
+    }
     /**
      * @param {string?} color 
      * @param {string?} colorHover 
@@ -24,7 +37,7 @@ export class Canvas {
      * @param {Function} onClickCode 
      * @returns {void}
      */
-    createButton(color=null, colorHover=null, texture=null, hover=null, width, height, x=null, y=null, onClickCode) {
+    createButton(color = null, colorHover = null, texture = null, hover = null, width, height, x = null, y = null, onClickCode) {
         // Console Warns
         if (color && texture) {
             console.error('You can not provide a color and a texture for a Button!')
@@ -64,16 +77,16 @@ export class Canvas {
 
         button.width = width
         button.height = height
-        
+
         button.interactive = true
-        button.buttonMode = true 
+        button.buttonMode = true
 
         this.app.stage.addChild(button);
 
         button.on('pointerdown', onClickCode)
         button.on('pointerover', buttonOver)
         button.on('pointerout', buttonOut)
-        
+
         function buttonOver() {
             if (hover) {
                 this.texture = hover
@@ -82,7 +95,7 @@ export class Canvas {
                 this.tint = colorHover
             }
         }
-        
+
         function buttonOut() {
             if (texture) {
                 this.texture = texture
@@ -91,19 +104,5 @@ export class Canvas {
                 this.tint = color
             }
         }
-    }
-    createGrid() {
-        for (let x = 0; x <= 780; x += 60) {
-            for (let y = 0; y <= 540; y += 60) {
-                this.grid.push(new Cell(x, y, this.app));
-            }
-        }
-    }
-    updateGrid() {
-
-    }
-
-    createTower() {
-        this.mesh[this.board.player.stage][0]
     }
 }

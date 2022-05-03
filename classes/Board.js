@@ -32,9 +32,9 @@ export class Board {
         //this.canvas.createButton('0xFFFFFF', '0x000000', undefined, undefined, 100, 100, undefined, undefined, () => { console.log('ebaaaa') })
         document.body.appendChild(this.app.view)
 
-        addEventListener('keydown', (event) => {
-            if (event.key == 'p') {
-                this.dev.getScreenPosition()
+        document.addEventListener('keydown', e => {
+            if (e.key == 'p') {
+                this.dev.getMousePos()
             } else {
                 this.entities.push(new Zombie(this))
             }
