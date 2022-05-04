@@ -18,8 +18,8 @@ export class Util {
      * @param {number} y2 
      * @returns {number}
      */
-    static distance(x, y, x2, y2) {
-        let dis = Math.abs(Math.sqrt(Math.pow(x - x2, 2) + Math.pow(y - y2, 2)))
+    static distance(vec1, vec2) {
+        let dis = Math.abs(Math.sqrt(Math.pow(vec1.x - vec2.x, 2) + Math.pow(vec1.y - vec2.y, 2)))
         return dis
     }
     /**
