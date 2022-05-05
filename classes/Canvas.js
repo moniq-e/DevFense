@@ -16,7 +16,6 @@ export class Canvas {
         for (let x = 0; x <= 780; x += 60) {
             for (let y = 0; y <= 540; y += 60) {
                 this.grid.push(new Cell(x, y, this.app))
-                console.log(this.grid)
             }
         }
     }

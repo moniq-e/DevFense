@@ -45,19 +45,8 @@ export class Util {
      * @returns {boolean}
      */
     static collides(obj1, obj2) {
-        let colliding = true
-        if (obj2.x > obj1.width + obj1.x) {
-            colliding = false
-        }
-        if (obj1.x > obj2.width + obj2.x) {
-            colliding = false
-        }
-        if (obj2.y > obj1.height + obj1.y) {
-            colliding = false
-        }
-        if (obj1.y > obj2.height + obj2.y) {
-            colliding = false
-        }
+        let colliding = false
+        if (this.distance(obj1, obj2) < obj1.width / 2) colliding = true
         return colliding
     }
     /**

@@ -14,7 +14,7 @@ export class Zombie extends Entity {
     }
     ai() {
         this.app.ticker.add(() => {
-            super.entityMove(this.board.player.sprite, this.sprite, this.speed)
+            super.entityMove(this, this.speed)
             this.hurtPlayer()
         })
     }

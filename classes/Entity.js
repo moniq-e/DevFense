@@ -62,7 +62,7 @@ export class Entity {
      * @param {number} speed 
      * @returns {void}
      */
-    entityMove(player, entity, speed) {
+    entityMove(entity, speed) {
         let currentCloser = {
             sprite: undefined,
             distance: 10000,
@@ -70,29 +70,37 @@ export class Entity {
             y: undefined
         }
         for (let i = 0; i < this.board.entities.length; i++) {
-            if (!this.board.entities[i].sprite == entity) {
-                if (currentCloser.distance <= Util.distance(entity, this.board.entities[i].sprite)) {
-                    console.log(`é ${i}`)
-                    currentCloser.distance = Util.distance(entity, this.board.entities[i].sprite)
+            console.log("1")
+            console.log(this.board.entities[i].id)
+            console.log(entity.id)
+            if (!this.board.entities[i].id == entity.id) {
+                console.log("2")
+                if (currentCloser.distance >= Util.distance(entity.sprite, this.board.entities[i].sprite)) {
+                    console.log(`é ${currentCloser.sprite}, distancia ${currentCloser.distance}`)
+                    currentCloser.distance = Util.distance(entity.sprite, this.board.entities[i].sprite)
                     currentCloser.sprite = this.board.entities[i].sprite
                     currentCloser.x = currentCloser.x
                     currentCloser.y = currentCloser.y
                 }
             }
         }
+        if (!currentCloser.sprite) { 
+            //entity.sprite.position.set(entity.sprite.x - speed, entity.sprite.y)
+            //return
+        } 
         console.log(currentCloser.sprite)
-        if (Util.collides(currentCloser.sprite, entity) && entity.x + entity.height / 2 > currentCloser.sprite.x + currentCloser.sprite.height / 2) return
+        if (Util.collides(currentCloser.sprite, entity.sprite) && entity.sprite.x + entity.sprite.height / 2 > currentCloser.sprite.x + currentCloser.sprite.height / 2) return
 
-        /*let disObj = Util.distance(entity.x, entity.y, player.x, player.y)
+        /*let disObj = Util.distance(entity.sprite.x, entity.sprite.y, player.x, player.y)
 
         let pos = speed / disObj
 
-        let x = entity.x - pos * (entity.x - player.x)
+        let x = entity.sprite.x - pos * (entity.sprite.x - player.x)
 
-        let y = entity.y - pos * (entity.y - player.y)*/
+        let y = entity.sprite.y - pos * (entity.sprite.y - player.y)*/
 
 
-        entity.position.set(entity.x - 1, entity.y)
+        entity.sprite.position.set(entity.sprite.x - speed, entity.sprite.y)
     }
     attack() {
         this.board.player.life -= this.damage
