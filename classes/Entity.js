@@ -63,6 +63,7 @@ export class Entity {
      * @returns {void}
      */
     entityMove(entity, speed) {
+        /*
         let currentCloser = {
             sprite: undefined,
             distance: 10000,
@@ -91,7 +92,7 @@ export class Entity {
         console.log(currentCloser.sprite)
         if (Util.collides(currentCloser.sprite, entity.sprite) && entity.sprite.x + entity.sprite.height / 2 > currentCloser.sprite.x + currentCloser.sprite.height / 2) return
 
-        /*let disObj = Util.distance(entity.sprite.x, entity.sprite.y, player.x, player.y)
+        let disObj = Util.distance(entity.sprite.x, entity.sprite.y, player.x, player.y)
 
         let pos = speed / disObj
 
@@ -99,6 +100,7 @@ export class Entity {
 
         let y = entity.sprite.y - pos * (entity.sprite.y - player.y)*/
 
+        if (Util.collides(this.board.player.sprite, entity.sprite)) return
 
         entity.sprite.position.set(entity.sprite.x - speed, entity.sprite.y)
     }

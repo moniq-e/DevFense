@@ -62,4 +62,9 @@ export class Util {
     static kill(entity) {
         entity.destroy()
     }
+
+    static getMousePos() {
+        let pos = this.app.renderer.plugins.interaction.mouse.global
+        return pos
+    }
 }

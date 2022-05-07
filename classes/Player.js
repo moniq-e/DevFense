@@ -14,7 +14,7 @@ export class Player {
      */
     constructor(board) {
         this.type = 'player'
-        this.stage
+        this.level = 0
         this.app = board.app
         this.board = board
         this.sprite = this.createSprite()
